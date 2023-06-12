@@ -1,1 +1,31 @@
+#include <stdio.h>
+#include <string.h>
 
+int main(){
+    int n, l, i, j, aux, valor;
+    char str[51];
+    
+    //quantidade de casos de teste
+    scanf("%d", &n);
+    
+    for(i = 0; i < n; i++){
+        do{
+            //quantidade de elementos presentes em um caso de teste
+            scanf("%d", &l);
+        } while (l<1 || l>100);
+        
+        valor = 0;
+        
+        for(j = 0; j < l; j++){
+            scanf("%s", str);
+            
+            for(aux = 0; str[aux] != '\0'; aux++){
+                //calculo do valor de hash
+                valor += str[aux] - 65 + j + aux;
+            }
+        }
+        printf("%d\n", valor);
+    }
+    
+    return 0;
+}
